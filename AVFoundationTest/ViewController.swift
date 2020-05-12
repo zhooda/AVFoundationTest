@@ -16,35 +16,37 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        switch ([AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo])
-        {
-            case AVAuthorizationStatusAuthorized:
-            {
-                // The user has previously granted access to the camera.
-                [self setupCaptureSession];
-                break;
-            }
-            case AVAuthorizationStatusNotDetermined:
-            {
-                // The app hasn't yet asked the user for camera access.
-                [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-                    if (granted) {
-                        [self setupCaptureSession];
-                    }
-                }];
-                break;
-            }
-            case AVAuthorizationStatusDenied:
-            {
-                // The user has previously denied access.
-                return;
-            }
-            case AVAuthorizationStatusRestricted:
-            {
-                // The user can't grant access due to restrictions.
-                return;
-            }
-        }
+//        switch ([AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo])
+//        {
+//            case AVAuthorizationStatusAuthorized:
+//            {
+//                // The user has previously granted access to the camera.
+//                [self setupCaptureSession];
+//                break;
+//            }
+//            case AVAuthorizationStatusNotDetermined:
+//            {
+//                // The app hasn't yet asked the user for camera access.
+//                [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+//                    if (granted) {
+//                        [self setupCaptureSession];
+//                    }
+//                }];
+//                break;
+//            }
+//            case AVAuthorizationStatusDenied:
+//            {
+//                // The user has previously denied access.
+//                return;
+//            }
+//            case AVAuthorizationStatusRestricted:
+//            {
+//                // The user can't grant access due to restrictions.
+//                return;
+//            }
+//        }
+//        [self setupCaptureSession()]
+        self.setupCaptureSession()
         
      
     }
